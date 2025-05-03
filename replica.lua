@@ -23,9 +23,7 @@ fireclickdetector(game:GetService("Workspace").Lobby.Replica.ClickDetector)
 wait(.5)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Lobby.Teleport1.CFrame
 task.wait(.3)
-while task.wait() do
-task.spawn(function()
-while task.wait() do
+while task.wait(1) do
 task.spawn(function()
 
 if not game.Players.LocalPlayer then
