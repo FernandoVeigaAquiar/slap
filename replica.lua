@@ -9,7 +9,7 @@ end
 
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
-        syn.queue_on_teleport("<script to execute after TP>")
+        syn.queue_on_teleport("loadstring(game:HttpGet(\"https://raw.githubusercontent.com/FernandoVeigaAquiar/slap/refs/heads/main/replica.lua\"))()")
     end
 end)
 
