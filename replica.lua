@@ -22,7 +22,7 @@ local RepeatTime = 750000 -- Make the number smaller if your executor can't hand
 fireclickdetector(game:GetService("Workspace").Lobby.Replica.ClickDetector)
 wait(.5)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Lobby.Teleport1.CFrame
-task.wait(.3)
+task.wait(1)
 
 if not game.Players.LocalPlayer then
     for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
