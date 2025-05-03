@@ -23,8 +23,6 @@ fireclickdetector(game:GetService("Workspace").Lobby.Replica.ClickDetector)
 wait(.5)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Lobby.Teleport1.CFrame
 task.wait(.3)
-while task.wait(1) do
-task.spawn(function()
 
 if not game.Players.LocalPlayer then
     for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
@@ -54,6 +52,51 @@ for i = 1, RepeatTime do
     end
 end
 end)
+task.spawn(function()
+for i = 1, RepeatTime do
+	game:GetService("ReplicatedStorage").Duplicate:FireServer(unpack({[1] = true}))
+	
+	if i == (RepeatTime - 1) then
+        for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+	        if v.playing and type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+		        serverList[#serverList + 1] = v.id
+		    end
+	    end
+    end
+    if #serverList > 0 then
+	    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, serverList[math.random(1, #serverList)])
+    end
 end
 end)
+task.spawn(function()
+for i = 1, RepeatTime do
+	game:GetService("ReplicatedStorage").Duplicate:FireServer(unpack({[1] = true}))
+	
+	if i == (RepeatTime - 1) then
+        for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+	        if v.playing and type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+		        serverList[#serverList + 1] = v.id
+		    end
+	    end
+    end
+    if #serverList > 0 then
+	    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, serverList[math.random(1, #serverList)])
+    end
 end
+end)
+task.spawn(function()
+for i = 1, RepeatTime do
+	game:GetService("ReplicatedStorage").Duplicate:FireServer(unpack({[1] = true}))
+	
+	if i == (RepeatTime - 1) then
+        for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+	        if v.playing and type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+		        serverList[#serverList + 1] = v.id
+		    end
+	    end
+    end
+    if #serverList > 0 then
+	    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, serverList[math.random(1, #serverList)])
+    end
+end
+end)
