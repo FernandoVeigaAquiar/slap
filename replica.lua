@@ -34,8 +34,6 @@ if not game.Players.LocalPlayer then
 	    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, serverList[math.random(1, #serverList)])
     end
 end
-
-end)
 task.spawn(function()
 for i = 1, RepeatTime do
 	game:GetService("ReplicatedStorage").Duplicate:FireServer(unpack({[1] = true}))
